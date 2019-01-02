@@ -23,12 +23,12 @@ DROP TABLE IF EXISTS `members`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `members` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_member` int(11) NOT NULL AUTO_INCREMENT,
   `company` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `position` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `created_on` datetime NOT NULL,
 
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id_member`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -49,7 +49,8 @@ DROP TABLE IF EXISTS `contact`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `contact` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_contact` int(11) NOT NULL AUTO_INCREMENT,
+  `id_member` int(11) NOT NULL,
   `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `phone` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `organization` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
@@ -57,7 +58,7 @@ CREATE TABLE `contact` (
   `city` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `zip_code` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `country` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id_contact`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -77,7 +78,8 @@ DROP TABLE IF EXISTS `hires`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `hires` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_hire` int(11) NOT NULL AUTO_INCREMENT,
+  `id_member` int(11) NOT NULL,
   `start_date` datetime NOT NULL,
   `key` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
@@ -85,7 +87,7 @@ CREATE TABLE `hires` (
   `city` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `first_name` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `last_name` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id_hire`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -103,10 +105,11 @@ DROP TABLE IF EXISTS `hires_role`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `hires_role` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_hirerole` int(11) NOT NULL AUTO_INCREMENT,
+  `id_member` int(11) NOT NULL,
   `start_date` datetime NOT NULL,
   `job_title` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id_hirerole`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -124,12 +127,13 @@ DROP TABLE IF EXISTS `social_hires`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `hires_role` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_social` int(11) NOT NULL AUTO_INCREMENT,
+  `id_member` int(11) NOT NULL,
   `username` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `job` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `source` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id_social`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -147,14 +151,15 @@ DROP TABLE IF EXISTS `meetup_attendance`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_attendee` int(11) NOT NULL AUTO_INCREMENT,
+  `id_member` int(11) NOT NULL,
   `first_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `last_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `last_registered` datetime NOT NULL,
   `last_attended` datetime NOT NULL,
   `next_registered` datetime NOT NULL,
   `profile` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`id_attendee`),
   ) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
