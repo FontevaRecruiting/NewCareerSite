@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `members`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `members` (
   `id_member` int(11) NOT NULL AUTO_INCREMENT,
-  `company` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `company` varchar(205) COLLATE utf8_unicode_ci NOT NULL,
   `position` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `created_on` datetime NOT NULL,
 
