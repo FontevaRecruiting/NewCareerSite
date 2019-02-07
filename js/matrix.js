@@ -1,3 +1,4 @@
+//This is the js doc that runs the canvas animation in the background of Fonteva Meetup group
 var c = document.getElementById("matrix");
 var ctx = c.getContext("2d");
 
